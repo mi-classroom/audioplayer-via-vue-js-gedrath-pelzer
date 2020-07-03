@@ -8,7 +8,7 @@ const StoreStructure = {
 		playlist: [],
 		audioplayer: {
 			isPlaying: false,
-			currentSong: null
+			selectedSong: null
 		}
 	},
 
@@ -19,8 +19,8 @@ const StoreStructure = {
 		mutateIsPlaying(state, value) {
 			state.audioplayer.isPlaying = value;
 		},
-		mutateCurrentSong(state, song) {
-			state.audioplayer.currentSong = song;
+		mutateSelectedSong(state, song) {
+			state.audioplayer.selectedSong = song;
 		} 
 	},
 
@@ -37,17 +37,16 @@ const StoreStructure = {
 			commit('mutateSetPlaylist', playlist);
 		},
 
-		playSong({ commit }, song) {
-			commit('mutateCurrentSong', song);
-			commit('mutateIsPlaying', true);
+		setSong({ commit }, song) {
+			commit('mutateSelectedSong', song);
 		},
 
-		pauseSong({ commit }) {
-			commit('mutateIsPlaying', false);
+		setIsPlaying({ commit }, state) {
+			commit('mutateIsPlaying', state);
 		},
 
 		stopSong({ commit }) {
-			commit('mutateCurrentSong', null);
+			commit('mutateSelectedSong', null);
 			commit('mutateIsPlaying', false);
 		}
 	},

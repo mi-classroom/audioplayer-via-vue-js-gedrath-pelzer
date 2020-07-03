@@ -32,7 +32,7 @@ export default {
 		},
 
 		selectedSong() {
-			return null;
+			return this.$store.state.audioplayer.selectedSong;
 		},
 	},
 
@@ -40,7 +40,7 @@ export default {
 
 	methods: {
 		playSong(song) {
-			this.$store.dispatch('playSong', song);
+			this.$store.dispatch('setSong', song);
 		},
 		
 		stopSong() {

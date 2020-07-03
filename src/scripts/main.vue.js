@@ -21,9 +21,17 @@ const store = createStore(Vuex);
 new Vue({
 	store: store, /* inject */
 	components: {
-		Playlist,
+		Playlist
 	},
 }).$mount(document.querySelector('.playlist'));
+
+/* Audioplayer */
+new Vue({
+	store: store,
+	components: {
+		Audioplayer
+	}
+}).$mount(document.querySelector('.audioplayer-wrap'));
 
 
 store.dispatch('loadPlaylist', './json/songs.json');
